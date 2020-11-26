@@ -109,8 +109,13 @@ app.use((err, req, res, next) => {
 mongoose
   .connect(process.env.MONGODB_URI,  { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {
-    app.listen("8080", (req, res, next) => {
-      console.log("App Listening to port 8080");
+    let port = process.env.PORT;
+    if (port == null || port == "") {
+      port = 3000;
+    }
+
+    app.listen(port, (req, res, next) => {
+      console.log(`App Listening to port: ${port}`);
     });
   })
   .catch((err) => {
