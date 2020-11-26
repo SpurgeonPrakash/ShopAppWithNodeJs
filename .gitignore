@@ -1,5 +1,6 @@
 # Project Wide
 .DS_Store
+credentials/
 
 # Logs
 logs
